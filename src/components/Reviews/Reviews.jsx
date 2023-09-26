@@ -1,7 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const Reviews = () => {
-  return <div>ReviewsReviewsReviews</div>;
+  const { movieId } = useParams();
+  return <div>Reviews for {movieId}</div>;
 };
 
 export default Reviews;
