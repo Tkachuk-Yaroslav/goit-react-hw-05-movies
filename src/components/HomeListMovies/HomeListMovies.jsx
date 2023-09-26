@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HomeListMovies = ({ populars }) => {
+const ListMovies = ({ movies }) => {
   return (
     <ul>
-      {populars.map(({ id, title }) => {
+      {movies.map(({ id, title }) => {
         return (
           <li key={id}>
             <Link to={`/movies/${id}`}>{title}</Link>
@@ -15,4 +15,4 @@ const HomeListMovies = ({ populars }) => {
   );
 };
 
-export default HomeListMovies;
+export default ListMovies;

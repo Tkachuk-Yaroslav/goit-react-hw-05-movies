@@ -1,4 +1,4 @@
-import HomeListMovies from 'components/HomeListMovies/HomeListMovies';
+import ListMovies from 'components/HomeListMovies/HomeListMovies';
 import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
 import { fetchToHome } from 'services/themoviedb-api';
@@ -33,7 +33,7 @@ const Home = () => {
 
       {!isError && <div>Trending today</div>}
       {isError && <p>Oops... Something went wrong, please try again!</p>}
-      {populars.length > 0 && <HomeListMovies populars={populars} />}
+      {populars.length > 0 && <ListMovies movies={populars} />}
     </>
   );
 };
