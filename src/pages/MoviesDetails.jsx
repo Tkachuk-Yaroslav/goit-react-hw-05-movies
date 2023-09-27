@@ -30,6 +30,7 @@ const MoviesDetails = () => {
   const { title, poster_path, release_date, vote_average, overview } =
     movie || {};
   const genres = movie.genres ? movie.genres : [];
+  console.log('genres', genres);
   const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
   const DEFAULT_URL =
     'https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg';
@@ -49,7 +50,11 @@ const MoviesDetails = () => {
       <h2>Oveview</h2>
       <p>{overview}</p>
       <h3>Genres</h3>
-      <p>{genres.map(genre => genre.name).join(' ')}</p>
+      <p>
+        {genres.length > 0
+          ? genres.map(genre => genre.name).join(' ')
+          : 'Not Founded'}
+      </p>
       <p>Additional infotmation</p>
 
       <Link to={'cast'}>Cast</Link>
