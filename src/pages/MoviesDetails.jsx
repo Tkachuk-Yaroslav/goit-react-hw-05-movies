@@ -1,3 +1,4 @@
+import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'services/themoviedb-api';
@@ -5,12 +6,23 @@ import { fetchMovieById } from 'services/themoviedb-api';
 const MoviesDetails = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(null);
+
   console.log('movieId', movieId);
   useEffect(() => {
     const asyncFetchById = async () => {
-      const data = await fetchMovieById(movieId);
-      console.log('data', data);
-      setMovie(data);
+      try {
+        setIsLoading(true);
+        setIsError(null);
+        const data = await fetchMovieById(movieId);
+        console.log('data', data);
+        setMovie(data);
+      } catch (error) {
+        setIsError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     asyncFetchById();
@@ -25,6 +37,9 @@ const MoviesDetails = () => {
 
   return (
     <>
+      {isLoading && <Loading />}
+      {isError && <p>Oops... Something went wrong, please try again!</p>}
+
       <div>MoviesDetails - {movieId} </div>
       <img src={imgSrc} alt="" />
       <h2>
