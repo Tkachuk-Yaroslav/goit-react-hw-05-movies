@@ -1,4 +1,4 @@
-import ListMovies from 'components/HomeListMovies/HomeListMovies';
+import ListMovies from 'components/ListMovies/ListMovies';
 import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
 import { fetchToHome } from 'services/themoviedb-api';

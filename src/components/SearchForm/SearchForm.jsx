@@ -16,7 +16,12 @@ const SearchForm = ({ onSubmit }) => {
 
   return (
     <form onClick={handleSubmit}>
-      <input type="text" name="searchQuery" onChange={handleChange} />
+      <input
+        type="text"
+        name="searchQuery"
+        onChange={handleChange}
+        autoComplete="off"
+      />
       <button type="submit">Find</button>
     </form>
   );
