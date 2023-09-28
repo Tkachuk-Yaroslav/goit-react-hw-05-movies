@@ -1,6 +1,12 @@
 import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import { fetchMovieById } from 'services/themoviedb-api';
 
 const MoviesDetails = () => {
@@ -8,6 +14,11 @@ const MoviesDetails = () => {
   const { movieId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
+
+  const location = useLocation();
+  console.log('locationDetails', location);
+
+  const navigate = useNavigate();
 
   console.log('movieId', movieId);
   useEffect(() => {
@@ -27,6 +38,11 @@ const MoviesDetails = () => {
 
     asyncFetchById();
   }, [movieId]);
+
+  const handleClickBackBtn = () => {
+    navigate(location.state);
+  };
+
   const { title, poster_path, release_date, vote_average, overview } =
     movie || {};
   const genres = movie.genres ? movie.genres : [];
@@ -40,7 +56,7 @@ const MoviesDetails = () => {
     <>
       {isLoading && <Loading />}
       {isError && <p>Oops... Something went wrong, please try again!</p>}
-
+      <button onClick={handleClickBackBtn}>{'← Go back'}</button>
       <div>MoviesDetails - {movieId} </div>
       <img src={imgSrc} alt="" />
       <h2>
