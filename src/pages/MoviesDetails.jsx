@@ -40,12 +40,13 @@ const MoviesDetails = () => {
   }, [movieId]);
 
   const handleClickBackBtn = () => {
-    navigate(location.state);
+    navigate(location.state ?? '/movies');
   };
 
-  const { title, poster_path, release_date, vote_average, overview } =
-    movie || {};
+  const { title, poster_path, vote_average, overview } = movie || {};
   const genres = movie.genres ? movie.genres : [];
+  const release_date = movie.release_date ?? '';
+  const year = release_date && release_date.slice(0, 4);
   console.log('genres', genres);
   const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
   const DEFAULT_URL =
@@ -60,7 +61,7 @@ const MoviesDetails = () => {
       <div>MoviesDetails - {movieId} </div>
       <img src={imgSrc} alt="" />
       <h2>
-        {title} ({release_date})
+        {title} ({year})
       </h2>
       <p>User Score: {Math.round(vote_average * 10)}%</p>
       <h2>Oveview</h2>
@@ -76,7 +77,7 @@ const MoviesDetails = () => {
       <Link to={'cast'} state={location.state}>
         Cast
       </Link>
-      <Link to={'reviews'} state={location.state}>
+      <Link to={'reviews'} state={location.state ?? '/movies'}>
         Reviews{' '}
       </Link>
       <Outlet />
