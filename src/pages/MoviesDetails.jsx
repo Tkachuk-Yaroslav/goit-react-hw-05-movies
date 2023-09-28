@@ -73,8 +73,12 @@ const MoviesDetails = () => {
       </p>
       <p>Additional infotmation</p>
 
-      <Link to={'cast'}>Cast</Link>
-      <Link to={'reviews'}>Reviews </Link>
+      <Link to={'cast'} state={location.state}>
+        Cast
+      </Link>
+      <Link to={'reviews'} state={location.state}>
+        Reviews{' '}
+      </Link>
       <Outlet />
     </>
   );
