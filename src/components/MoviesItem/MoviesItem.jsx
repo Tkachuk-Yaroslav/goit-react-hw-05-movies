@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { ItemLink } from './MoviesItem.styled';
 
 const MoviesItem = ({ movie }) => {
   const location = useLocation();
@@ -7,9 +8,9 @@ const MoviesItem = ({ movie }) => {
   const { id, title } = movie;
   return (
     <li>
-      <Link to={`/movies/${id}`} state={location}>
-        {title}
-      </Link>
+      <ItemLink to={`/movies/${id}`} state={location}>
+        🎬{title}
+      </ItemLink>
     </li>
   );
 };

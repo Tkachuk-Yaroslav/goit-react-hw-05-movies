@@ -2,6 +2,7 @@ import ListMovies from 'components/ListMovies/ListMovies';
 import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
 import { fetchToHome } from 'services/themoviedb-api';
+import { HomeHeader } from './Home.styled';
 
 const Home = () => {
   const [populars, setPopulars] = useState([]);
@@ -31,7 +32,7 @@ const Home = () => {
     <>
       {isLoading && <Loading />}
 
-      {!isError && <div>Trending today</div>}
+      {!isError && <HomeHeader>Trending today</HomeHeader>}
       {isError && <p>Oops... Something went wrong, please try again!</p>}
       {populars.length > 0 && <ListMovies movies={populars} />}
     </>
