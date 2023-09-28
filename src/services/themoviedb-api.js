@@ -1,5 +1,4 @@
 import axios from 'axios';
-//закинути в каст і рев'ю стейт на лінк з локацією
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
