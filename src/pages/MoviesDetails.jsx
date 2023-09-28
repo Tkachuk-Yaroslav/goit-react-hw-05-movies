@@ -1,5 +1,5 @@
 import Loading from 'components/Loading/Loading';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import {
   Link,
   Outlet,
@@ -80,7 +80,9 @@ const MoviesDetails = () => {
       <Link to={'reviews'} state={location.state ?? '/movies'}>
         Reviews{' '}
       </Link>
-      <Outlet />
+      <Suspense fallback={'Loading.....'}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
