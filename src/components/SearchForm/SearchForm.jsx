@@ -1,5 +1,6 @@
 // import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Form, FormBtn, FormInput } from './SearchForm.styled';
 
 const SearchForm = ({ onSubmit }) => {
   // const [value, setValue] = useState('');
@@ -28,8 +29,8 @@ const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onClick={handleSubmit}>
-      <input
+    <Form onClick={handleSubmit}>
+      <FormInput
         type="text"
         name="searchQuery"
         onChange={handleChange}
@@ -37,8 +38,8 @@ const SearchForm = ({ onSubmit }) => {
         value={query}
         // value={value}
       />
-      <button type="submit">Find</button>
-    </form>
+      <FormBtn type="submit">Find</FormBtn>
+    </Form>
   );
 };
 
