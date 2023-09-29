@@ -21,8 +21,8 @@ const SearchForm = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const dataURL = searchParams.get('search');
-    console.log('dataURL', dataURL);
+    // const dataURL = searchParams.get('search');
+    // console.log('dataURL', dataURL);
     // onSubmit(value);
     onSubmit(query);
     // onSubmit(dataURL);

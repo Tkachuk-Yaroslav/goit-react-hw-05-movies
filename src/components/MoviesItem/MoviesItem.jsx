@@ -4,7 +4,7 @@ import { ItemLink } from './MoviesItem.styled';
 
 const MoviesItem = ({ movie }) => {
   const location = useLocation();
-  console.log('location', location);
+  // console.log('location', location);
   const { id, title } = movie;
   return (
     <li>

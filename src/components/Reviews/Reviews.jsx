@@ -2,6 +2,7 @@ import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDetailsReviews } from 'services/themoviedb-api';
+import { Item, List } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -16,7 +17,7 @@ const Reviews = () => {
         setIsError(null);
 
         const data = await fetchDetailsReviews(movieId);
-        console.log('data reviews', data);
+        // console.log('data reviews', data);
         setReviews(data.results);
       } catch (error) {
         setIsError(error.message);
@@ -27,24 +28,24 @@ const Reviews = () => {
 
     asyncFetchReviews();
   }, [movieId]);
-  console.log('reviews', reviews);
+  // console.log('reviews', reviews);
   return (
     <>
       {isLoading && <Loading />}
       {isError && <p>Oops... Something went wrong, please try again!</p>}
 
-      <div>Reviews for {movieId}</div>
+      {/* <div>Reviews for {movieId}</div> */}
       {reviews.length > 0 ? (
-        <ul>
+        <List>
           {reviews.map(review => {
             return (
-              <li key={review.id}>
+              <Item key={review.id}>
                 <h2>Author: {review.author}</h2>
                 <p>{review.content}</p>
-              </li>
+              </Item>
             );
           })}
-        </ul>
+        </List>
       ) : (
         'Not founded'
       )}

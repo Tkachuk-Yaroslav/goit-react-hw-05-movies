@@ -27,7 +27,7 @@ const Movies = () => {
       setIsError(null);
 
       const data = await fetchInMoviesPage(searchText);
-      console.log('data', data);
+      // console.log('data', data);
       setMovies(data.results);
     } catch (error) {
       setIsError(error.message);
@@ -57,7 +57,7 @@ const Movies = () => {
 
     searchQuery && asyncFetchMovies(searchQuery);
   }, [asyncFetchMovies, searchQuery]);
-  console.log('movies', movies);
+  // console.log('movies', movies);
 
   useEffect(() => {
     ref.current && asyncFetchMovies(ref.current);

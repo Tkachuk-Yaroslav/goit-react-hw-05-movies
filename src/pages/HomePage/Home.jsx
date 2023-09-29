@@ -15,7 +15,7 @@ const Home = () => {
         setIsError(null);
 
         const data = await fetchToHome();
-        console.log('data', data);
+        // console.log('data', data);
         setPopulars(data.results);
       } catch (error) {
         setIsError(error.message);
@@ -26,7 +26,7 @@ const Home = () => {
 
     asyncFetchHome();
   }, []);
-  console.log('populars', populars);
+  // console.log('populars', populars);
 
   return (
     <>

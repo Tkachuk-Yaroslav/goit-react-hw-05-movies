@@ -1,6 +1,12 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header, HeaderList, HeaderListItem, LinkNav } from './Layout.styled';
+import {
+  Footer,
+  Header,
+  HeaderList,
+  HeaderListItem,
+  LinkNav,
+} from './Layout.styled';
 
 const Layout = () => {
   return (
@@ -20,11 +26,11 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <footer>
+      <Footer>
         <div>
           This program was developed by a student of GoIT - Tkachuk Yaroslav
         </div>
-      </footer>
+      </Footer>
     </>
   );
 };

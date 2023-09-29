@@ -38,3 +38,13 @@ export const LinkNav = styled(NavLink)`
     border: 5px solid orange;
   }
 `;
+
+export const Footer = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #938e8e;
+  padding: 0px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+`;
