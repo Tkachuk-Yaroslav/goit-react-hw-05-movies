@@ -5,6 +5,7 @@ import { fetchMovieById } from 'services/themoviedb-api';
 import {
   AddInfo,
   BackBtn,
+  CardImg,
   CardTitle,
   FlexWrap,
   LinkNav,
@@ -61,7 +62,7 @@ const MoviesDetails = () => {
       <BackBtn onClick={handleClickBackBtn}>{'← Go back'}</BackBtn>
       {/* <div>MoviesDetails - {movieId} </div> */}
       <FlexWrap>
-        <img src={imgSrc} alt="" />
+        <CardImg src={imgSrc} alt="" />
         <div>
           <CardTitle>
             {title} ({year})

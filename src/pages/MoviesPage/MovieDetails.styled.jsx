@@ -22,6 +22,11 @@ export const BackBtn = styled.button`
 export const FlexWrap = styled.div`
   display: flex;
   gap: 10px;
+  align-items: center;
+`;
+
+export const CardImg = styled.img`
+  max-height: 400px;
 `;
 
 export const CardTitle = styled.h2`
