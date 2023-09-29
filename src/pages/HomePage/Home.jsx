@@ -2,7 +2,7 @@ import ListMovies from 'components/ListMovies/ListMovies';
 import Loading from 'components/Loading/Loading';
 import React, { useEffect, useState } from 'react';
 import { fetchToHome } from 'services/themoviedb-api';
-import { HomeHeader } from './Home.styled';
+import { Absolute, HomeHeader } from './Home.styled';
 
 const Home = () => {
   const [populars, setPopulars] = useState([]);
@@ -35,6 +35,11 @@ const Home = () => {
       {!isError && <HomeHeader>Trending today</HomeHeader>}
       {isError && <p>Oops... Something went wrong, please try again!</p>}
       {populars.length > 0 && <ListMovies movies={populars} />}
+      <Absolute>
+        For your attention,
+        <br /> the top 20 best movies of the day, <br />
+        have a good viewing!!!
+      </Absolute>
     </>
   );
 };
